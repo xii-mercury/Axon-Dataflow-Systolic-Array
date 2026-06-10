@@ -11,7 +11,7 @@ module PE #(                                     // '#()' for scalability
 );
     // Internal Registers 
     reg [DATA_WIDTH- 1:0] w_reg;
-    reg [ACC_WIDTH- 1:0] acc_reg;
+    //reg [ACC_WIDTH- 1:0] acc_reg;  //To be used for Output Stationary
 
     always @(posedge clk) begin
         // Outputs as well as Internal ACC register to be reset to 0
