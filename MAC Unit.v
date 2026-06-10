@@ -3,7 +3,7 @@ module PE #(                                     // '#()' for scalability
     parameter DATA_WIDTH = 8,
     parameter ACC_WIDTH = 32
 ) (
-    input wire reset, clk, w_load_en,             // Control Signals
+    input wire rst, clk, w_load_en,             // Control Signals
     input wire [DATA_WIDTH- 1:0] in_w, in_data,   // 8-bit Input Signals
     input wire [ACC_WIDTH- 1:0] in_acc,           // 32-bit Input Signals
     output reg [DATA_WIDTH- 1:0] out_data,        // 8-bit Output Signal
@@ -14,9 +14,9 @@ module PE #(                                     // '#()' for scalability
     //reg [ACC_WIDTH- 1:0] acc_reg;  //To be used for Output Stationary
 
     always @(posedge clk) begin
-        // Outputs as well as Internal ACC register to be reset to 0
-        if (reset) begin                  
-            acc_reg <= 0;
+        // Outputs as well as Internal weight register to be reset to 0
+        if (rst) begin                  
+            w_reg <= 0;
             out_data <= 0;
             out_acc <= 0;
         end
